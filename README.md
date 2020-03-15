@@ -3,8 +3,8 @@ This code allows Garry's Mod vehicles primarily from simfphys to drive themselve
 
 ## Rangers
 * Front - facing forward
-* Left - face about 50-90° left
-* Right - face about 50-90° right
+* Left - face about 60-70° left
+* Right - face about 60-70° right
 
 ## Inputs
 **Make sure output distance, output velocity, output entity+entid is enabled in the ranger spawn menu**
