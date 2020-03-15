@@ -1,5 +1,5 @@
 # Garry's Mod Wiremod Self-Driving
-This code allows Garry's Mod vehicles primarily from simfphys to drive themselves using Expressions 2 from Wiremod. Rangers are used as inputs and also a speed. Should work perfectly on a road with high walls. Also has adaptive cruise control if there's a vehicle or any other object in front and partially automatic emergency braking (AEB).
+This code allows Garry's Mod vehicles primarily from simfphys to drive themselves using Expressions 2 from Wiremod. Rangers are used as inputs and also a speedometer. Should work perfectly on a road with high walls. Also has adaptive cruise control if there's a vehicle or any other object in front and partially automatic emergency braking (AEB).
 
 ## Rangers
 * Front - facing forward
