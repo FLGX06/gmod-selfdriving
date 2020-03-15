@@ -16,6 +16,7 @@ Doesn't work well on roads without high walls usually
 * Left - face about 60-70° left
 * Right - face about 60-70° right
 
+### Expression 2 inputs
 * Front - front ranger distance
 * Left - left ranger distance
 * Right - right ranger distance
