@@ -74,7 +74,7 @@ if(Front < 100 && Speed > 500) {
     
     DesiredSteer = Steer
     
-    if(abs(Steer) > 0.2 && Limit == 1) {
+    if(abs(Steer) > LimitValue && Limit == 1) {
         Beep = 1
      
         if(DriftSharp == 1 && Speed > 300 && abs(Steer) > 5 && Front > 200) {
