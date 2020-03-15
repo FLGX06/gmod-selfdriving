@@ -4,6 +4,10 @@
 @persist LastError LastSpeed LastTime LastSpeedError LastSteer
 @trigger 
 
+## (c) Copyright 2020 FLGX
+## Author: FLGX
+## GitHub repository: https://github.com/FLGX06/gmod-selfdriving
+
 FrontVel = abs(VX) + abs(VY) + abs(VZ)
 
 Offset = (min(Right, 1000) - min(Left, 1000)) / 1000
