@@ -3,9 +3,9 @@ This code allows Garry's Mod vehicles primarily from simfphys to drive themselve
 
 ### Setup
 Doesn't work well on roads without high walls usually
-![Setup](image.png)
-### Example and ACC
-![Example + ACC](image2.png)
+![Setup (gm_fork)](image.png)
+### Example and ACC (gm_buildnrace)
+![Example + ACC (gm_buildnrace)](image2.png)
 
 ## Rangers
 * Front - facing forward
