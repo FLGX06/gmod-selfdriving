@@ -10,6 +10,9 @@ Doesn't work well on roads without high walls usually
 ## Inputs
 **Make sure output distance, output velocity, output entity+entid is enabled in the ranger spawn menu**
 **Also set the ranger distance to 8192 by typing it in there**
+**Don't forget to configure the braking time from 1000 gm/s to 0**
+`BrakingTime = 1 * (Speed / 1000)`
+By default it is configured that it takes 1 second from 1000 gm/s to 0
 
 ### Rangers
 * Front - facing forward
