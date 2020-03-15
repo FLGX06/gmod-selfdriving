@@ -1,0 +1,169 @@
+@name Self Driving
+@inputs Front Left Right Driver:entity Speed VX VY VZ FrontID
+@outputs Engine Throttle Steer Offset Beep DesiredSteer Crashed Brake Enabled Handbrake RGB:vector
+@persist LastError LastSpeed LastTime LastSpeedError LastSteer
+@trigger 
+
+FrontVel = abs(VX) + abs(VY) + abs(VZ)
+
+Offset = (min(Right, 1000) - min(Left, 1000)) / 1000
+CER = LastError - Offset
+
+Handbrake = 0
+Brake = 0
+
+Beep = 0
+
+KP = 1
+KI = 1
+KD = 1
+
+Limit = 1
+LimitValue = 0.5
+DriftSharp = 1
+MaxSpeed = 1750
+
+RGB = vec(0, 0, 0)
+
+# Following distance per speed
+FollowingDistance = 0.25
+
+AFD = FollowingDistance * Speed + 50
+
+if(FrontID == 0) {
+    AFD = 0
+}
+
+IFD = 0
+
+if(FrontID != 0) {
+    MaxSpeed = FrontVel + (Front - AFD)
+    D_C = FrontVel
+    
+    IFD = 1
+}
+
+Time = realtime()
+Took = 0.1
+
+BrakingTime = 1 * (Speed / 1000)
+BrakingDistance = BrakingTime * (Speed / 2)
+
+function number b(Distance) {
+    return BrakingDistance / Distance
+}
+
+if(LastSpeed - Speed > 300 && Brake == 0) {
+    #Crashed = 1
+}
+
+if(Front < 100 && Speed > 500) {
+    #Crashed = 1
+}
+
+    P = KP * Offset
+    I = KI * Offset * Took
+    D = -(KD * CER / Took)
+    B = b(500)
+    
+    Steer = P + I + D
+    
+    DesiredSteer = Steer
+    
+    if(abs(Steer) > 0.2 && Limit == 1) {
+        Beep = 1
+     
+        if(DriftSharp == 1 && Speed > 300 && abs(Steer) > 5 && Front > 200) {
+            Handbrake = 1
+        } elseif(Steer > 0) {
+            Steer = min(LimitValue, Steer)
+        } else {
+            Steer = min(LimitValue, abs(Steer)) * -1
+        }
+    }
+
+if(Driver == noentity() && Crashed == 0) {
+    Enabled = Engine = 1
+
+    Throttle = 0
+    
+    if(floor(Speed) < floor(MaxSpeed)) {
+        SpeedError = MaxSpeed - Speed
+        
+        #Thing = -(LastSpeedError - SpeedError) * 0.25
+        
+        LastSpeedError = SpeedError
+        
+        Throttle = max(0, min(0.5, (MaxSpeed - Speed) / MaxSpeed * 1.25))
+    } else {
+        Diff = abs(Speed - MaxSpeed)
+    
+        if(Diff > 10) {
+            Brake = min(1, Diff / MaxSpeed)
+        }
+    }
+    
+    if(AFD > Front) {
+        Throttle = 0
+        Brake = b(Front + MaxSpeed / 2 - AFD)
+    }
+} else {
+    Enabled = 0
+    Beep = 0
+
+    Handbrake = Brake = 0
+    if(Crashed == 1) {
+        Handbrake = 1
+        
+        if(Speed > 100) {
+            Brake = 1
+        }
+    }
+
+    Engine = 0
+    Throttle = 0
+    Steer = 0
+}
+
+LastError = Offset
+LastSpeed = Speed
+
+LastTime = Time
+
+B = b(Front - AFD)
+
+if(Front < BrakingDistance * 2.5 && FrontID == 0) {
+    Throttle = 0
+    
+    if(B > 0.5) {
+        Beep = 1
+        
+        if(B > 0.9) {
+            Brake = B
+        }
+    }
+    
+    if(Front < 25 && Speed > 10) {
+        Handbrake = 1
+    }
+}
+
+if(Throttle == 0 && Speed < 20 && Enabled == 1 && Brake > 0) {
+    Handbrake = 1
+}
+
+if(abs(LastSteer - Steer) > LimitValue && Limit == 1) {
+    Beep = 1
+    
+    if(Steer > 0) {
+        Steer = LimitValue
+    } else {
+        Steer = LimitValue * -1
+    }
+}
+
+if(Beep == 1) {
+    RGB = vec(255, 0, 0)
+}
+
+LastSteer = Steer
