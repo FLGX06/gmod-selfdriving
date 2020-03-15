@@ -7,14 +7,14 @@ Doesn't work well on roads without high walls usually
 ### Example (gm_buildnrace)
 ![Example (gm_buildnrace)](image2.png)
 
-## Rangers
-* Front - facing forward
-* Left - face about 60-70° left
-* Right - face about 60-70° right
-
 ## Inputs
 **Make sure output distance, output velocity, output entity+entid is enabled in the ranger spawn menu**
 **Also set the ranger distance to 8192 by typing it in there**
+
+### Rangers
+* Front - facing forward
+* Left - face about 60-70° left
+* Right - face about 60-70° right
 
 * Front - front ranger distance
 * Left - left ranger distance
