@@ -3,9 +3,9 @@ This code allows Garry's Mod vehicles primarily from simfphys to drive themselve
 
 ### Setup
 Doesn't work well on roads without high walls usually
-![Setup (gm_fork)](image.png)
+![Setup (gm_fork)](images/image.png)
 ### Example (gm_buildnrace)
-![Example (gm_buildnrace)](image2.png)
+![Example (gm_buildnrace)](images/image2.png)
 
 ## Inputs
 * **Make sure output distance, output velocity, output entity+entid is enabled in the ranger spawn menu**
