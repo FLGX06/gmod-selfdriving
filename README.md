@@ -20,7 +20,7 @@ Doesn't work well on roads without high walls usually
 * Front - front ranger distance
 * Left - left ranger distance
 * Right - right ranger distance
-* Driver - driver of the vehicle (disabled when there's a driver as in simfphys it can't control steering at least for me)
+* Driver - driver of the vehicle (disabled when there's a driver as in simfphys it can't control steering at least for me, you can as a passanger though)
 * Speed - speedometer garry's mod speed (Out output)
 * VX - front ranger VX (velocity)
 * VY - front ranger VY (velocity)
