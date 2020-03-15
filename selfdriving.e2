@@ -22,7 +22,7 @@ KP = 1
 KI = 1
 KD = 1
 
-Limit = 1
+Limit = 0
 LimitValue = 0.5
 DriftSharp = 1
 MaxSpeed = 1750
