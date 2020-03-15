@@ -1,7 +1,11 @@
 # Garry's Mod Wiremod Self-Driving
 This code allows Garry's Mod vehicles primarily from simfphys to drive themselves using Expressions 2 from Wiremod. Rangers are used as inputs and also a speedometer. Should work perfectly on roads with high walls. Also has adaptive cruise control if there's a vehicle or any other object in front and partially automatic emergency braking (AEB). There's an attempt to use PID controller for steering (not sure if it's actually correct). This is my project I've been working on when bored in Garry's Mod. It actually didn't take long time to do it once I understood it all after my previous attempts.
 
-![Example](image.png)
+### Setup
+Doesn't work well on roads without high walls usually
+![Setup](image.png)
+### Example and ACC
+![Example + ACC](image2.png)
 
 ## Rangers
 * Front - facing forward
