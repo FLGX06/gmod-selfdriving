@@ -153,10 +153,10 @@ if(Front < BrakingDistance * 2.5 && (FrontID == 0 || FrontVel < 5)) {
     
     B = b(Front)
     
-    if(B > 0.5) {
+    if(B > 0.75) {
         Beep = 1
         
-        if(B > 0.9) {
+        if(B > 0.999) {
             Brake = B
         }
     }
